@@ -1,0 +1,485 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Basic R and how to read in data},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Basic R and how to read in data}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+This guide is partly based on online material from Amy Willis, Kiirsti
+Owen and Amelia McNamara, and the book ``R for Data Science'' by Hadley
+Wickham and Garrett Grolemund. Thank you amazing R community!
+
+\subsubsection{R as a calculator}\label{r-as-a-calculator}
+
+In the Console window below, type: 2+2 and press Enter Also try:
+
+\textless- = \texttt{\{r\}\ 2\^{}5\ 3/10\ (3+5)\^{}2\ sqrt(4)}
+
+Tip: To run a line (or multiple lines) of code from a script without
+typing them into the Console, select the line(s) you want to run and
+press Ctrl+Enter (Command+Enter on a Mac)
+
+\subsubsection{Objects}\label{objects}
+
+R stores data as objects. You create new objects when you assign a value
+to them using ``\textless-'':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{3}  \CommentTok{\# Check the "Environment" window!}
+\end{Highlighting}
+\end{Shaded}
+
+Tip: use the R studio shortcut Alt+ - (Alt and the minus sign) to easily
+create the assignment symbol \textless-
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \DecValTok{6}
+\NormalTok{x}\SpecialCharTok{+}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
+Tip: R is case sensitive so if you've defined your object as x, it will
+not recognise (capital) X. Similarly, the function for square root is
+sqrt, R will give you an error if you try to use Sqrt.
+
+\subsubsection{Packages}\label{packages}
+
+Packages extend the functionality of base R. They are distributed via
+CRAN: the Comprehensive R Archive Network
+
+To install a package, use: install.packages(``packagename'') You then
+need to load it, using library(packagename)
+
+We will be using a collection of packages called the Tidyverse:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+When you load the tidyverse, you'll see a message about conflicts. As
+there is an (increasingly) large number of packages in R, it is possible
+to have functions with the same name in more than one package. The
+message tells you that packages dplyr and stats both have a function
+called filter and the one that will be used is the one from dplyr. It is
+the one that was loaded last.
+
+If you want to use a function from a particular package, you need to
+include packagename:: before the name of the function.
+
+In this example, you can use stats::filter() instead of just filter() to
+use filter from the stats package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{find}\NormalTok{(}\StringTok{"filter"}\NormalTok{) }\CommentTok{\# this shows you the packages a function belongs to, in order of priority}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "package:dplyr" "package:stats"
+\end{verbatim}
+
+The tidyverse packages we will be using mostly in this course are readr
+(for reading in data), dplyr (for transforming data) and ggplot2 (for
+plotting).
+
+\subsubsection{Functions}\label{functions}
+
+When using the Tidyverse, you can call functions in two ways:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sqrt}\NormalTok{(}\DecValTok{4}\NormalTok{) }\CommentTok{\# base R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4} \SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  sqrt  }\CommentTok{\# "pipe" operator (you can read is as "and then...")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+Tip: use the R Studio shortcut Ctrl + Sft + M to create the pipe
+operator \%\textgreater\%
+
+Tip: If you are not sure what a function does, type ?functionname in the
+Console, e.g.~?sqrt
+
+\subsubsection{Reading in data}\label{reading-in-data}
+
+Before we read in our data, let's consider where we have saved our data
+file. Since we want our code to be reusable (by us and other people),
+the last thing we want is to include the location of the file in our
+code, something like:
+
+``C:/dimitra/data/datafile.csv''
+
+The above would only work for me, and only for the particular computer
+where folder ``dimitra'' contains a folder called ``data''.
+
+To avoid these issues, we need to do two things:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use R projects. (I hope you are doing that already!) Save the data and
+  R markdown file inside the R project. Exactly where you save your code
+  doesn't matter, you just need to note the location of your data with
+  respect to the .Rproj file.
+\item
+  Use the R package ``here''. ``Here'' points to the location of the
+  .Rproj file (which is the working directory for your project), so you
+  just need to add ``here'' in front of the relative path to your data
+  file.
+\end{enumerate}
+
+For example, if your data file (a comma-separated value (csv) file) was
+saved inside a ``data'' directory, you would say:
+
+library(here)
+
+fev\_data \textless- read\_csv(here(``data/fev.csv''))
+
+To read in a file that is saved in the same directory as the .Rproj
+file:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(here)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## here() starts at C:/Users/Yuluo Chen/OneDrive - University of Strathclyde/Documents/Jing/JW_PU5058_ABDN2024/read_in_data_week5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fev\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"fev.csv"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 654 Columns: 7
+\end{verbatim}
+
+\begin{verbatim}
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## dbl (7): seqnbr, subjid, age, fev, height, sex, smoke
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+(Remember to install the ``here'' package the first time.)
+
+--\textgreater{} How would you use read\_csv with the pipe operator?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Add your code here!}
+\end{Highlighting}
+\end{Shaded}
+
+Look at the top few rows of the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(fev\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 7
+##   seqnbr subjid   age   fev height   sex smoke
+##    <dbl>  <dbl> <dbl> <dbl>  <dbl> <dbl> <dbl>
+## 1      1    301     9  1.71   57       0     0
+## 2      2    451     8  1.72   67.5     0     0
+## 3      3    501     7  1.72   54.5     0     0
+## 4      4    642     9  1.56   53       1     0
+## 5      5    901     9  1.90   57       1     0
+## 6      6   1701     8  2.34   61       0     0
+\end{verbatim}
+
+fev\_data is a tibble - this is a tidyverse structure similar to a data
+frame (from base R) but with some differences:
+
+\begin{itemize}
+\tightlist
+\item
+  default printing is shorter
+\item
+  tells you the column types (character, double, etc.)
+\item
+  doesn't change the types of inputs
+\end{itemize}
+
+Tip: if your data is in a Microsoft Excel spreadsheet, you will need a
+different package to read it in, such as readxl. So you'll need:
+
+install.packages(``readxl'')
+
+library(readxl)
+
+excel\_data \textless- read\_xlsx(filename, sheet = 1) \#(to read the
+first sheet)
+
+--\textgreater{} How would you read in a text file? (Check the data
+import cheat sheet!) There is a text file in your dataset so you can
+practice: psa.txt
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Add your code here!}
+\end{Highlighting}
+\end{Shaded}
+
+--\textgreater{} Have a look at the ``Useful arguments'' section of the
+data import cheat sheet. Use a few of them when you read in fev.csv and
+look at the data, is that what you expected?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Add your code here!}
+\end{Highlighting}
+\end{Shaded}
+
+--\textgreater{} Apply the summary function to a tibble. What does it
+do?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Add your code here!}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Operating on data:
+columns}\label{operating-on-data-columns}
+
+Individual columns are identified using the \$ symbol:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.708 1.724 1.720 1.558 1.895 2.336
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.791   1.981   2.547   2.637   3.119   5.793
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 654
+\end{verbatim}
+
+Other useful functions for tibbles and data frames:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(fev\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "seqnbr" "subjid" "age"    "fev"    "height" "sex"    "smoke"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(fev\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 654   7
+\end{verbatim}
+
+Other useful functions for columns:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.793
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.63678
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(fev\_data}\SpecialCharTok{$}\NormalTok{fev)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8670591
+\end{verbatim}
+
+\end{document}
